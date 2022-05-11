@@ -1,6 +1,8 @@
 package com.sorayya.myfragmentrecyclerview;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -67,6 +69,8 @@ public class DetailFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "Calling "+mParam3, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", mParam3, null));
+                startActivity(intent);
             }
         });
         return view;
